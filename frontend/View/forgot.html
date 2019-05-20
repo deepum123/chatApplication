@@ -1,0 +1,35 @@
+<html ng-app="clientside">
+
+<head>
+  <script src="../angular.js"></script>
+
+</head>
+
+<body ng-controller="controlForgotPassword">
+
+
+  <section id=main>
+    <article>
+      <main>
+        
+            <form name="myForm" style="border:1px solid #ccc">
+              <div>
+                <br>
+                <h1><b>Forgot password?</b></h1>
+              </div>
+
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" ng-model="email" required autocomplete="on">
+              <div>
+                <br>
+                <button type="submit" value="log In" ng-click="forgotPassword()" class="login-button">Submit</button>
+                <br>
+
+            
+            </form>
+      </main>
+    </article>
+  </section>
+</body>
+
+</html>
