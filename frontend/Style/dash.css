@@ -1,0 +1,214 @@
+*{
+    box-sizing: border-box;
+    width: 100%;
+    
+    
+  }
+  
+ 
+  
+  
+  .singleChat {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  span{
+    font-size: 25%;
+    float:left;
+    margin-right:50px
+  }
+  .chat .chatMsg{
+    width: 60%;
+    /* color: red; */
+    padding: 7px;
+    margin:0px,0px,0px;
+    border-radius: 10px;
+    font-size: 18px
+  }
+  .friend img {
+    float: left;
+    max-width: 50px;
+    width: 10%;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  .friend .chatMsg{
+   
+    background : rgb(14, 65, 116);
+    color:rgb(20, 5, 2);;
+    text-align: left;
+    float: left;
+    
+  }
+  .names {
+    border: black;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1px;
+    margin: 5px 0;
+  }
+  .self .chatMsg{
+    color: rgb(20, 5, 2);
+    text-align: right;
+    background: rgba(144, 148, 111, 0.363);
+
+    background-color: lightslategray;
+
+      
+      float: right;
+      
+
+    
+   
+  }
+  .self img {
+    float: right;
+    max-width: 50px;
+    width: 10%;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  
+  button {
+    background-color: #ee3434;
+    color: rgb(207, 70, 70);
+    padding: 14px 20px;
+    margin: 8px 0;
+    
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 25%;
+  }
+  
+  button:hover {
+    opacity:1;
+  }
+  
+    h1{
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    font-weight: lighter;
+    color:brown;
+    font-size: 150%;
+    }
+  h5{
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    font-weight: lighter;
+    color:black; 
+    font-size: 250%;
+  }
+  /* Style the header */
+  header {
+    background-image: url("istockphoto-500177214-612x612.jpg");
+    background-size: 1300px 300px;
+    background-repeat: no-repeat;
+    padding: 5px;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+  }
+  h2{
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    font-weight: lighter;
+    color:black; 
+    font-size: 35px;
+    
+  }
+  .logbutton
+  {
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    opacity: 0.9;
+    
+  }
+  h3{
+  
+    letter-spacing: 1.1px;
+    font-weight: lighter;
+    color:orchid;
+    font-size: 25px;
+    text-transform: uppercase;
+  }
+  .sendbtn{
+    background :rgb(146, 7, 53) ;
+    color: white;
+    width: 20%;
+    padding: 14px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    height: 10%;
+  }
+  
+  
+  /* Create two columns/boxes that floats next to each other */
+  nav {
+    float: left;
+    width: 30%;
+    height: 440px; /* only for demonstration, should be removed */
+    background: rgb(142, 199, 196);
+    padding: 20px;
+    background-image: url("download.png");
+    background-size: 100px 100px;
+    text-align: left;
+    cursor: pointer;
+    overflow-y:scroll;
+    overflow-x: hidden;
+  }
+  
+  /* Style the list inside the menu */
+  nav ul {
+    text-align: center;
+  }
+  
+  .gropChat{
+    float:right;
+    width: 70%;
+    height: 100%;
+  
+    margin: 0px 0px 0px;
+  }
+  
+  article {
+    float:right;
+    padding: 20px;
+    width: 70%;
+    background-image: url("icq_pttrn3 (2).png");
+    background-size: 400px 200px;
+    height: 440px; /* only for demonstration, should be re*/
+  }
+  
+  .username{
+    letter-spacing: 1.1px;
+    font-weight: lighter;
+    margin:0px 10px 0px 0px;
+    color:black;
+  }
+  article section{
+    float:right;
+   
+    width: 100%;
+     height: 100%;
+    color: rgb(112, 180, 219);
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  
+  .text
+  { 
+    width: 100%;
+    height: 10%;
+    margin: 20px 40px 0px 0px;
+    box-sizing: border-box;
+    
+  }
+  

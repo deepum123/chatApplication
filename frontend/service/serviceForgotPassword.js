@@ -12,10 +12,10 @@ app.service('serviceForgotPassword', function ($http, $location) {
                 var userid = response.data.message[0]._id;
                 var name = response.data.message[0].firstname;
                 var token = response.data.token;
-                localStorage.setItem("userid", userid);
+                localStorage.setItem("userId", userid);
                 localStorage.setItem("name", name);
                 localStorage.setItem("token",token);
-          
+                $location.path('/login')
                 $scope.loginMessage = "login successfull";
             },
             function errorCallback(response) {

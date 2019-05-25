@@ -1,4 +1,4 @@
-var app = angular.module('clientside', ['ui.router']);
+var app = angular.module('clientside', ['ui.router','btford.socket-io']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -21,12 +21,29 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'View/signup.html',
             controller: 'controlRegister'
         })
+        $stateProvider.state('resetPassword', {
+            url: '/resetPassword/:token',
+            templateUrl: 'View/reset.html',
+            controller: 'controlResetPassword'
+        
+        })
+        $stateProvider.state('dashBoard',{
+            url:'/dashBoard',
+            templateUrl:'View/dashBoard.html',
+            controller:'chatController'
 
+        })
         
 
     $urlRouterProvider.otherwise('login');
 
 
 });
-
-
+app.service('SocketService', ['socketFactory', function SocketService(socketFactory) {
+    return socketFactory({
+        ioSocket: io.connect('http://localhost:3000') 
+    });
+}]);
+app.config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+}]);

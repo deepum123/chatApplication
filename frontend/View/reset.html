@@ -1,0 +1,41 @@
+
+<html ng-app="clientside">
+    <head>
+     
+          <script src="../controller/resetPassword.js"></script>
+          <script src="../angular.js"></script>
+          <link href="../Style/newstyle.css" rel="stylesheet" type="text/css">
+         </head>
+  <body ng-controller="controlResetPassword">
+   
+
+
+    <div class="container register-form">
+        <div class="form">
+            <div class="note">
+                <p><b>Chat App Password Reset Form </b><br> Enter the new Password Below </p>
+            </div>
+            <form name="myForm" method="POST" style="border:1px solid #ccc">
+            <div class="form-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        
+                  
+                        <div class="form-group">
+                            <input type="password" placeholder="Enter Password"  class="form-control" name="password" ng-model="password" id="password" title="at least 8 or more characters" required>
+                        </div>
+                    </div>
+                </div>
+                <button class="btnSubmit" type="submit" value="Sign up" ng-click="resetPassword()" ng-disabled="myForm.$invalid">Reset</button>
+            
+            </div>
+            </form>
+        </div>
+    
+    </div>
+
+
+    </body>
+</html>
+  
+  

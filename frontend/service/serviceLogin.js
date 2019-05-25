@@ -16,7 +16,7 @@ app.service('serviceLogin', function ($http, $location) {
                 localStorage.setItem("userid", userid);
                 localStorage.setItem("name", name);
                 localStorage.setItem("token",token);
-            
+                $location.path('/dashBoard');
               
             },
             function errorCallback(response) {

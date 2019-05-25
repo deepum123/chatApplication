@@ -36,3 +36,26 @@ module.exports.useServiceForgotPassword=(req,callback)=>
     }
     )
 }
+
+module.exports.userControllerResetPassword=(req,callback)=>
+{
+    model.userModelResetPassword(req,(err,data)=>{
+        if(err){
+            return callback(err)
+        }else
+        return callback(null,data)
+    })
+}
+
+
+module.exports.userServiceGetAllUsers=(req,callback)=>{
+    model.userModelGetAllUsers(req,(err,data)=>
+{
+if(err){
+    return callback(err)
+}else{
+    return callback(null,data)
+}
+
+})
+}

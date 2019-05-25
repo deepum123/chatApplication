@@ -1,0 +1,49 @@
+.note
+{
+    text-align: center;
+    height: 200px;
+    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+    color:whitesmoke;
+    font-weight: bold;
+    line-height: 100px;
+    font-size: 20px;
+
+
+}
+
+.form-content
+{
+    padding: 2%;
+    border: 1.5px solid lightgreen;
+    margin-bottom: 0%;
+    
+
+}
+.form-control{
+    border-radius:1.5rem;
+    width: 30%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: white;
+}
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 15%;
+    cursor: pointer;
+    background: #0062cc;
+    color: #fff;
+    margin: 8px 0;
+    
+    opacity: 0.9;
+}
+.form-content {
+    background-color:lightgrey;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }

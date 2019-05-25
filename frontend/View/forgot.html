@@ -2,34 +2,43 @@
 
 <head>
   <script src="../angular.js"></script>
-
+  <link href="../Style/newstyle.css" rel="stylesheet" type="text/css">
 </head>
 
 <body ng-controller="controlForgotPassword">
 
 
-  <section id=main>
-    <article>
-      <main>
-        
-            <form name="myForm" style="border:1px solid #ccc">
-              <div>
-                <br>
-                <h1><b>Forgot password?</b></h1>
-              </div>
 
-              <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email" name="email" ng-model="email" required autocomplete="on">
-              <div>
-                <br>
-                <button type="submit" value="log In" ng-click="forgotPassword()" class="login-button">Submit</button>
-                <br>
 
+  <div class="container register-form">
+      <div class="form">
+          <div class="note">
+            <p>Forgot User Password...!!..??<br> Not a problem .we will send the reset link to your email id
+            </p>
+            </div>
+         
+          <form name="myForm" method="POST" style="border:1px solid #ccc">
+          <div class="form-content">
+              <div class="row">
             
-            </form>
-      </main>
-    </article>
-  </section>
+                      
+                
+                  <div class="col-md-6">
+                      <div class="form-group">
+                              
+                          <input type="text" placeholder="Enter Email"  class="form-control" name="email" ng-model="email" required>
+                      </div>
+                      
+                
+              </div>
+              
+              <button class="btnSubmit" type="submit" value="log In" ng-click="forgotPassword()" class="login-button">Submit</button>
+          </div>
+          </form>
+      </div>
+  
+  </div>
+
 </body>
 
 </html>

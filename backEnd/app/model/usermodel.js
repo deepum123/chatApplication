@@ -51,18 +51,18 @@ usermodule.prototype.userModelRegister = (body, callback) => {
                 "email": body.email,
                 "password": hash(body.password)
             })
-          
+
             newuser.save((err, data) => {
                 if (err) {
                     console.log(" error in registration")
                     console.log("error", err)
                     return callback(err)
                 } else {
-                    console.log("1.firstone model works registration succesfull",data)
+                    console.log("1.firstone model works registration succesfull", data)
                     console.log(body.firstname)
                     callback(null, data)
                 }
-           
+
             })
         }
 
@@ -71,8 +71,8 @@ usermodule.prototype.userModelRegister = (body, callback) => {
 }
 
 usermodule.prototype.userModelLogin = (body, callback) => {
-    console.log("emaiiillllllllllllllll",body);
-    
+    console.log("emaiiillllllllllllllll", body);
+
     user.find({ 'email': body.email }, (err, data) => {
         if (err) {
             return callback(err)
@@ -99,22 +99,52 @@ usermodule.prototype.userModelLogin = (body, callback) => {
 
         }
     })
-    
+
 
 }
 
 
 
-usermodule.prototype.userModelForgotpassword=(body,callback)=>
-user.find({'email':body.email},(err,data)=>{
-if(err){
-    return callback(err)
-}else if(data){
-    console.log(data)
-    return callback(null,data)
-}else 
-console.log("invalid email and user")
+usermodule.prototype.userModelForgotpassword = (body, callback) =>
+    user.find({ 'email': body.email }, (err, data) => {
+        if (err) {
+            return callback(err)
+        } else if (data) {
+            console.log(data)
+            return callback(null, data)
+        } else
+            console.log("invalid email and user")
 
+
+    })
+usermodule.prototype.userModelResetPassword = (req, callback) => {
+    let newpassword = hash(req.body.password)
+    console.log("module block " + req)
+    console.log(req.body.password)
+    console.log(JSON.stringify(req.decoded))
+    user.updateOne({ '_id': req.decoded.payload.user_id }, { 'password': newpassword }, (err, data) => {
+        if (err) {
+            console.log("error ")
+            return callback(err)
+        } else {
+            return callback(null, data)
+        }
+    }
+    )
+}
+usermodule.prototype.userModelGetAllUsers=(req,callback)=>{
+user.find({},(err,data)=>{
+      if(err){
+          console.log(err+"error occure")
+          return  callback(err)
+      }else{
+        return callback(null,data)
+      }
 
 })
+
+
+}
+
+
 module.exports = new usermodule();
