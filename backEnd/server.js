@@ -37,7 +37,7 @@ app.use(bodyParser.json());
 var expressValidator = require('express-validator')
  app.use(expressValidator());
 //importing socketIO to get connection between client and server.
-var socketIO =require('socket.io');
+
 var chatController = require('./controller/chatController');
 
 const mongoose = require('mongoose');
@@ -81,6 +81,7 @@ const dbConfig = require('./config/dbConfiguration');
 //app.use(express.static('/home/admin1/Desktop/chat application/chat/client'));
 
 //connection to the mongo database
+//Avoid “current URL string parser is deprecated” warning by setting useNewUrlParser to true
 mongoose.connect(dbConfig.url, {
     useNewUrlParser: true
 }).then(() => {

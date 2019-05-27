@@ -3,7 +3,7 @@ app.controller('chatController', function ($scope, SocketService, $state, chatSe
     $scope.allUserArr = [];
     $scope.currUserName = localStorage.getItem('name');
     $scope.currUser = localStorage.getItem('userid');
-    $scope.recieverUserName = localStorage.getItem('rusername');
+   
     var token = localStorage.getItem("token");
     console.log(token);
     if (token === null) {//if the tocken is null then go to login page
@@ -40,8 +40,8 @@ app.controller('chatController', function ($scope, SocketService, $state, chatSe
     $scope.getUserMsg = function () {
         console.log(" user msg i am called");
         chatServices.getUserMsg($scope);
-    }
-    $scope.getUserMsg();
+    }             
+    //$scope.getUserMsg();
     try {
         $scope.sendmessage = function () {//send message function
             var msg = {
@@ -62,7 +62,7 @@ app.controller('chatController', function ($scope, SocketService, $state, chatSe
     try {
         $scope.logout = function () {
             localStorage.clear();
-            $state.go('login')//return back to login page//change panniruke /login
+            $state.go('login')//return back to login page//change  /login
         }
     }
     catch (err) {

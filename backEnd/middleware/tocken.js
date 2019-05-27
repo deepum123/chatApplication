@@ -1,4 +1,6 @@
 const jwt = require('jsonwebtoken');
+try{
+
 module.exports={
     GenerateToken(payload){
         const token =jwt.sign({payload},'secret',{expiresIn:'2h'}) //expires in two hours
@@ -9,4 +11,7 @@ module.exports={
         }
         return obj
     }
+}
+}catch (err) {
+    console.log("error in middleware token.js")
 }

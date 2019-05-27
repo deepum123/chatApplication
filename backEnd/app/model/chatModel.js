@@ -43,10 +43,11 @@ try {
         const newMsg = new chat({
             senderUserId: chatData.senderUserId,
             senderName: chatData.senderName,
-            reciverUserId: chatData.reciverUserId,
-            reciverName: chatData.reciverName,
+            reciverUserId: chatData.recieverUserId,
+            reciverName: chatData.recieverName,
             message: chatData.message
         });
+      
         console.log("new Msg in model==>",newMsg);
         
         newMsg.save((err, result) => {

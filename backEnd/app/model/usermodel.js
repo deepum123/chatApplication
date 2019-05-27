@@ -31,7 +31,7 @@ function hash(password) {
     var hashpassword = bcryptjs.hashSync(password, salt)
     return hashpassword;
 }
-
+ try{
 usermodule.prototype.userModelRegister = (body, callback) => {
     console.log("in model");
 
@@ -69,7 +69,11 @@ usermodule.prototype.userModelRegister = (body, callback) => {
     })
 
 }
+ }catch (err) {
+    console.log("error in userModelRegister")
+}
 
+ try{
 usermodule.prototype.userModelLogin = (body, callback) => {
     console.log("emaiiillllllllllllllll", body);
 
@@ -87,7 +91,7 @@ usermodule.prototype.userModelLogin = (body, callback) => {
 
                 } else {
                     console.log("incorrect possword plz check")
-                    return callback(" incorrecr pass worde").status(500)
+                    return callback(" incorrecr pass word").status(500)
                 }
             })
         }
@@ -102,9 +106,11 @@ usermodule.prototype.userModelLogin = (body, callback) => {
 
 
 }
+}catch (err) {
+    console.log("error in userModellogin")
+}
 
-
-
+try{
 usermodule.prototype.userModelForgotpassword = (body, callback) =>
     user.find({ 'email': body.email }, (err, data) => {
         if (err) {
@@ -117,11 +123,17 @@ usermodule.prototype.userModelForgotpassword = (body, callback) =>
 
 
     })
+}catch (err) {
+    console.log("error in usermodel forgotpassword")
+}
+
+
+try{
 usermodule.prototype.userModelResetPassword = (req, callback) => {
     let newpassword = hash(req.body.password)
     console.log("module block " + req)
     console.log(req.body.password)
-    console.log(JSON.stringify(req.decoded))
+    //console.log(JSON.stringify(req.decoded))
     user.updateOne({ '_id': req.decoded.payload.user_id }, { 'password': newpassword }, (err, data) => {
         if (err) {
             console.log("error ")
@@ -132,6 +144,10 @@ usermodule.prototype.userModelResetPassword = (req, callback) => {
     }
     )
 }
+}catch (err) {
+    console.log("error in usermodel resetpassword")
+}
+try{
 usermodule.prototype.userModelGetAllUsers=(req,callback)=>{
 user.find({},(err,data)=>{
       if(err){
@@ -145,6 +161,8 @@ user.find({},(err,data)=>{
 
 
 }
-
+}catch (err) {
+    console.log("error in usermodel get all user")
+}
 
 module.exports = new usermodule();

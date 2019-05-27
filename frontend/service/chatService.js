@@ -2,7 +2,7 @@ app.service('chatServices', function ($http) {
     try {
         this.getAllUsers = function ($scope, usertoken) {
             console.log("get all users called in service chat")
-            var usertokenn = localStorage.getItem('token');
+          //  var usertokenn = localStorage.getItem('token');
             $http({
                 method: 'GET',//assigning value to http proprties 
                 url: 'http://localhost:3000/auth/getAllUser',//changes here...
@@ -30,6 +30,7 @@ app.service('chatServices', function ($http) {
     }
     try {
         this.getUserMsg = function ($scope) {
+            console.log("get user msg is called")
             var arr = [];
             var usertoken = localStorage.getItem('token');
             $http({
@@ -40,20 +41,29 @@ app.service('chatServices', function ($http) {
                 }
             }).then(
                 function successCallback(response) {
-                    console.log(response.data.message);
+                    console.log("get user msg returns something")
+                    console.log(response.data);
 
-                    for (let i = 0; i < (response.data.message); i++) {  //(response.data.message).length *change was done
-                        a = response.data.message[i];
-
-                        if (((localStorage.getItem('userid') == a.senderUserId) && (localStorage.getItem('ruserId') == a.recieverUserId)) || ((localStorage.getItem('userid') == a.recieverUserId && localStorage.getItem('ruserId') == a.senderUserId))) {
+                    for (let i = 0; i < (response.data.result.length); i++) {  //(response.data.message).length *change was done
+                     var   a = response.data.result[i];
+ console.log("a is print is values"+a)
+ if (((localStorage.getItem('userid') == a.senderUserId) && 
+(localStorage.getItem('ruserId') == a.reciverUserId)) || 
+ ((localStorage.getItem('userid') == a.reciverUserId &&
+  localStorage.getItem('ruserId') == a.senderUserId))) {
+    
+    
                             console.log("local user is ", localStorage.getItem('userid'), "a user is ", a.senderUserId, " local rcvrid is ", localStorage.getItem('ruserId'), "  reciver is ", a.recieverUserId);
+                        
                             arr.push(a);//pushing all message to array
+                            console.log("after if loop"+arr)
                         }
-
-                    }
+                  }
+                    
                     $scope.allUserArr = arr;
+                    
                     console.log("Users msg successfull ", arr);
-
+                    
                 },
                 function errorCallback(response) {
                     console.log("Unsuccessfull ");

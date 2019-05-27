@@ -42,7 +42,7 @@
                 </div>
                 <section>
                     <form>
-                        <div class="chatLogs" ng-repeat="chat in allUserArr">
+                        <div class="chatLogs" ng-repeat="chat in allUserArr  track by $index">
                                 
                             <div class="chat friend" ng-show="currUser != chat.senderUserId">
                                     <img src="../Style/download (1).jpeg" alt="Avatar" >

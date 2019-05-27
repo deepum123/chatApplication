@@ -1,4 +1,8 @@
 var model = require('../app/model/usermodel');
+
+try{
+
+
 module.exports.userServiceRegister=(req,callback)=>{
     console.log("in service");
     model.userModelRegister(req, (err,data)=>{
@@ -11,6 +15,11 @@ module.exports.userServiceRegister=(req,callback)=>{
         return callback(null,data)   
     })
 }
+}catch (err) {
+    console.log("error in user servicesRegister")
+}
+
+try{
 module.exports.userServiceLogin=(req,callback)=>
 {
     model.userModelLogin(req,(err,data)=>{
@@ -20,6 +29,11 @@ module.exports.userServiceLogin=(req,callback)=>
         return callback(null,data)
     })
 }
+}catch (err) {
+    console.log("error in userservice login")
+}
+
+try{
 module.exports.useServiceForgotPassword=(req,callback)=>
 {
 
@@ -36,7 +50,12 @@ module.exports.useServiceForgotPassword=(req,callback)=>
     }
     )
 }
+}catch (err) {
+    console.log("error in userservice fotgotpassword")
+}
 
+
+try{
 module.exports.userControllerResetPassword=(req,callback)=>
 {
     model.userModelResetPassword(req,(err,data)=>{
@@ -46,8 +65,11 @@ module.exports.userControllerResetPassword=(req,callback)=>
         return callback(null,data)
     })
 }
+}catch (err) {
+    console.log("error in userservice reset pass word")
+}
 
-
+try{
 module.exports.userServiceGetAllUsers=(req,callback)=>{
     model.userModelGetAllUsers(req,(err,data)=>
 {
@@ -58,4 +80,7 @@ if(err){
 }
 
 })
+}
+}catch (err) {
+    console.log("error in userservice get all users")
 }

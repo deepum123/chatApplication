@@ -3,6 +3,7 @@ var jwt = require('jsonwebtoken')
 var gentoken = require('../middleware/tocken');
 var sendmail = require('../middleware/sendMail');
 
+try{
 module.exports.userControllerRegister = (req, res) => {
     console.log("in contrlr");
     req.checkBody('firstname', 'fistname is not valid').isLength({ min: 3 }).isAlpha();
@@ -29,7 +30,10 @@ module.exports.userControllerRegister = (req, res) => {
         })
     }
 }
-
+}catch (err) {
+    console.log("error in usercontrollerregister")
+}
+try{
 module.exports.userControllerLogin = (req, res) => {
     req.checkBody("email", "email is not valid").isEmail();
     req.checkBody("password", "pass word is not valid").isLength({ min: 3 });
@@ -58,7 +62,12 @@ module.exports.userControllerLogin = (req, res) => {
         })
     }
 }
+}catch (err) {
+    console.log("error in usercontrollr login")
+}
 
+
+try{
 module.exports.userControllerForgotPassword = (req, res) => {
 
     req.checkBody("email", "email is not valid").isEmail();
@@ -103,6 +112,11 @@ module.exports.userControllerForgotPassword = (req, res) => {
         });
     }
 };
+}catch (err) {
+    console.log("error in usercontrollrforgot password")
+}
+
+try{
 module.exports.userControllerResetPassword = (req, res) => {
     ;
     req.checkBody('password', 'password is not valid')
@@ -128,7 +142,11 @@ module.exports.userControllerResetPassword = (req, res) => {
         })
     }
 }
+}catch (err) {
+    console.log("error in usercontroller reset password")
+}
 
+try{
 module.exports.userControllerGetAllUsers = (req, res) => {
     service.userServiceGetAllUsers(req, (err, data) => {
         var response = {}
@@ -153,4 +171,7 @@ module.exports.userControllerGetAllUsers = (req, res) => {
 
 
 
+}
+}catch (err) {
+    console.log("error in usercontroller get all users")
 }
