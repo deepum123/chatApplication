@@ -1,12 +1,14 @@
 const nodemailer=require('nodemailer');
-try{
+
 exports.sendEMailFunction = (url,email) => {
+    try{
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user:'deepum648@gmail.com',
-            pass:'eminememinem'
+            user:process.env.EMAIL,
+            pass:process.env.PASSWORD
         },
+        
     });
     const mailOptions = {
         from:'deepum648@gmail.com',    
@@ -25,7 +27,8 @@ exports.sendEMailFunction = (url,email) => {
             console.log('result of sending mail-- ',info);
     });
     
-}
+
 }catch (err) {
     console.log("error in middleware send mailer")
+}
 }

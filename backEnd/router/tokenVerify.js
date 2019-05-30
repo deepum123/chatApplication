@@ -1,7 +1,8 @@
 var jwt = require('jsonwebtoken');
 var secret = "secret";
-try{
+
 module.exports.checkToken = (req, res, next)=> {
+    try{
     console.log("In auth");
     var token = req.headers["token"];
     console.log(token ,"token is in auth");
@@ -30,9 +31,10 @@ else{
         message:"token not provided"
     })
 }
-}
+
 }
 catch(err)
 {
     console.log("found error in generating token")
+}
 }

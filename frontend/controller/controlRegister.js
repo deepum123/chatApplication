@@ -3,6 +3,7 @@ app.controller('controlRegister', function ($scope, serviceRegister) {
 
     // for registration form
     $scope.register = function () {
+        try{
         var user = {
             'firstname': $scope.firstname,
             'lastname': $scope.lastname,
@@ -15,7 +16,9 @@ app.controller('controlRegister', function ($scope, serviceRegister) {
        
             serviceRegister.registerUser(user, $scope);
             
-        
+        }catch{
+            console.log("error in control register in front end")
+        }
     }
 });
 

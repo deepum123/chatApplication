@@ -1,6 +1,7 @@
 app.service('chatServices', function ($http) {
-    try {
+    
         this.getAllUsers = function ($scope, usertoken) {
+            try {
             console.log("get all users called in service chat")
           //  var usertokenn = localStorage.getItem('token');
             $http({
@@ -24,12 +25,14 @@ app.service('chatServices', function ($http) {
                 }
             );
         }
-    }
+    
     catch (err) {
         console.log("error found here in getting users")
     }
-    try {
+}
+    
         this.getUserMsg = function ($scope) {
+            try {
             console.log("get user msg is called")
             var arr = [];
             var usertoken = localStorage.getItem('token');
@@ -53,10 +56,10 @@ app.service('chatServices', function ($http) {
   localStorage.getItem('ruserId') == a.senderUserId))) {
     
     
-                            console.log("local user is ", localStorage.getItem('userid'), "a user is ", a.senderUserId, " local rcvrid is ", localStorage.getItem('ruserId'), "  reciver is ", a.recieverUserId);
-                        
-                            arr.push(a);//pushing all message to array
-                            console.log("after if loop"+arr)
+    console.log("local user is ", localStorage.getItem('userid'), "a user is ", a.senderUserId, " local rcvrid is ", localStorage.getItem('ruserId'), "  reciver is ", a.recieverUserId);
+
+    arr.push(a);//pushing all message to array
+    console.log("after if loop"+arr)
                         }
                   }
                     
@@ -72,9 +75,9 @@ app.service('chatServices', function ($http) {
                 }
             );
         }
-    }
+    
     catch (err) {
         console.log("founr error in getting message")
-    }
+    }}
 
 })

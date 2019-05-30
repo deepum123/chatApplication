@@ -1,6 +1,7 @@
 const chatServices = require("../service/chatService");
-try {
+
     module.exports.message = (req, callback) => {
+        try{
         console.log("request", req);
         chatServices.addMessage(req, (err, data) => {
             if (err) {
@@ -12,13 +13,15 @@ try {
             }
         })
     }
-}
+
 catch (err) {
     console.log("Error in sending message!");
 
 }
-try {
+    }
+
     module.exports.getUserMsg = (req, res) => {
+        try {
         console.log("Entered control");
         chatServices.getUserMsg(req, (err, data) => {
             var response = {};
@@ -33,8 +36,9 @@ try {
             }
         })
     }
-}
+
 catch (err) {
     console.log("Error found in server chat controll!");
 
 }
+    }

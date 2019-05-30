@@ -2,6 +2,7 @@ app.service('serviceRegister', function ($http, $location) {
 
     this.registerUser = function (data, $scope) {
         console.log("data on service register--- ", data);
+        try{
         
         $http({
             method: 'POST',
@@ -24,5 +25,9 @@ app.service('serviceRegister', function ($http, $location) {
 
             }
         );
+    }catch(err){
+        console.log("error in service register in front end")
+
+    }
     }
 });

@@ -16,6 +16,8 @@
 
 
 const http = require('http');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // to include all modules or all files
 //which allows us to support HTTp protocol and socket.IO
@@ -43,7 +45,7 @@ var chatController = require('./controller/chatController');
 const mongoose = require('mongoose');
 const route = require('../backEnd/router/route');
 
-var server = app.listen(3000, () => {
+var server = app.listen(process.env.PORT, () => {
     console.log("Server is listening to port 3000");
 })
 const io = require('socket.io')(server);
@@ -90,3 +92,4 @@ mongoose.connect(dbConfig.url, {
     console.log("could not connect to the database");
     process.exit();
 }); 
+module.exports=app;

@@ -1,0 +1,24 @@
+{
+"register":{
+    "firstname":"deepu",
+    "lastname":"deepak",
+    "email":"de2hfgf@gmail.com",
+    "password":"123qweasd"
+},
+"login":{
+    "email":"de2hfgf@gmail.com",
+    "password":"123qweasd"
+
+},
+"forgotPassword":{
+    "email":"de2hfgf@gmail.com"
+
+},
+"resetPassword":{
+    "headers":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7InVzZXJfaWQiOiI1Y2VlMmY2NjVmZmJlYTMxYmRiOTIxYjkifSwiaWF0IjoxNTU5MTE0ODYzLCJleHAiOjE1NTkxMjIwNjN9.dlGW-TY1RWlML2OzlAePBEBFAuAuYK_QXGLxzeZILx0"
+
+}
+
+
+
+}

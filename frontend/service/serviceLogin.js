@@ -2,6 +2,7 @@ app.service('serviceLogin', function ($http, $location) {
 
 
     this.login = function (data, $scope) {
+        try{
         $http({
             method: 'POST',
             url: 'http://localhost:3000/login',
@@ -28,6 +29,10 @@ app.service('serviceLogin', function ($http, $location) {
 
             }
         );
+    }catch(err){
+        console.log("error in service login front end")
+
+    }
     }
 
 });

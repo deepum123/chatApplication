@@ -11,7 +11,8 @@ app.controller('chatController', function ($scope, SocketService, $state, chatSe
     }
     try {
         SocketService.on('newMessageSingle', (message) => {//listening to the evnts
-            if (localStorage.getItem('userid') == message.senderUserId || (localStorage.getItem('userid') == message.recieverUserId && localStorage.getItem('ruserId') == message.senderUserId)) {
+            if (localStorage.getItem('userid') == message.senderUserId || (localStorage.getItem('userid') 
+            == message.recieverUserId && localStorage.getItem('ruserId') == message.senderUserId)) {
                 if ($scope.allUserArr === undefined) {
                     $scope.allUserArr = message;//assighning message to variable
                 } else {
@@ -41,9 +42,10 @@ app.controller('chatController', function ($scope, SocketService, $state, chatSe
         console.log(" user msg i am called");
         chatServices.getUserMsg($scope);
     }             
-    //$scope.getUserMsg();
-    try {
+    $scope.getUserMsg();
+    
         $scope.sendmessage = function () {//send message function
+            try {
             var msg = {
                 'senderUserId': localStorage.getItem('userid'),
                 'senderName': localStorage.getItem('name'),
@@ -54,18 +56,20 @@ app.controller('chatController', function ($scope, SocketService, $state, chatSe
             $scope.message = '';
             SocketService.emit('createMessage', msg);//emittin the message to the browser
         }
-    }
+    
     catch (err) {
         console.log("error in sending message to the reciever")
     }
-
-    try {
+        }
+  
         $scope.logout = function () {
+            try {
             localStorage.clear();
             $state.go('login')//return back to login page//change  /login
         }
-    }
+    
     catch (err) {
         console.log("error in logging out")
     }
+}
 });

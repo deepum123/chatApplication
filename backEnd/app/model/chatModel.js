@@ -36,8 +36,9 @@ function chatModel() {
 
 }
 var chat = mongoose.model('chatInfo', chatSchema);
-try {
+
     chatModel.prototype.addMessage = (chatData, callback) => {
+        try {
         console.log('chatData model.js 20--', chatData.senderUserId)
 
         const newMsg = new chat({
@@ -63,12 +64,13 @@ try {
         });
     }
 
-}
 catch (err) {
     console.log("result not found")
 }
-try {
+    }
+
     chatModel.prototype.getUserMsg = (req ,callback) => {
+        try {
         chat.find({}, (err, data) => {
             if (err) {
                 callback(err)
@@ -79,9 +81,10 @@ try {
         })
     }
 
-}
+
 catch (err) {
     console.log("Cannot find data")
 }
+    }
 
 module.exports = new chatModel();
